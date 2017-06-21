@@ -1,0 +1,58 @@
+<div id="home-view">
+  <p>
+    <div layout layout-sm="column">
+      <md-input-container flex class="md-default-theme" autofocus>
+        <label for="first-name">Number 1</label>
+        <input type="number"
+               ng-model="numA"
+               class="ng-pristine ng-untouched ng-valid md-input"
+               tabindex="0"
+               id="first-name"
+               aria-invalid="false">
+        <div class="md-placeholder">Please input number 1</div>
+      </md-input-container>
+      <md-input-container flex class="md-default-theme">
+        <label for="last-name">Number 2</label>
+        <input type="number"
+               ng-model="numB"
+               class="ng-pristine ng-untouched ng-valid md-input"
+               tabindex="0"
+               id="last-name"
+               aria-invalid="false">
+        <div class="md-placeholder">Please input number 2</div>
+      </md-input-container>
+    </div>
+
+    <span>
+      <strong>Total</strong>: [[homeCtrl.add(numA, numB)]]
+    </span>
+  </p>
+
+  <p>
+    <div layout layout-sm="column">
+      <md-input-container flex class="md-default-theme" autofocus>
+        <label for="first-name">First Name</label>
+        <input ng-model="homeCtrl.myUser.firstName"
+               class="ng-pristine ng-untouched ng-valid md-input"
+               tabindex="0"
+               id="first-name"
+               aria-invalid="false">
+        <div class="md-placeholder">Please input your first name</div>
+      </md-input-container>
+      <md-input-container flex class="md-default-theme">
+        <label for="last-name">Last Name</label>
+        <input ng-model="homeCtrl.myUser.lastName"
+               class="ng-pristine ng-untouched ng-valid md-input"
+               tabindex="0"
+               id="last-name"
+               aria-invalid="false">
+        <div class="md-placeholder">Please input your last name</div>
+      </md-input-container>
+    </div>
+    <div>
+      <h2 data-ng-class="homeCtrl.myColor">
+        [[homeCtrl.sayHello() | uppercase]]
+      </h2>
+    </div>
+  </p>
+</div>

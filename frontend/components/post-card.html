@@ -1,0 +1,106 @@
+<link rel="import" href="../lib/polymer/polymer.html">
+<link rel="import" href="../lib/core-icon-button/core-icon-button.html">
+
+<!-- The <polymer-element> [custom] element is how you define a new custom
+  element in Polymer. In this case, you're creating an element called
+  "post-card". -->
+<polymer-element name="post-card">
+  <!-- The <template> defines the element's internal DOM structure, or shadow
+  DOM. -->
+  <template>
+    <style>
+      /* The :host pseudo-class matches the element that hosts the shadow DOM
+      tree. In this case, it matches the <post-card> element. */
+      :host {
+        display: block;
+        position: relative;
+        background-color: white;
+        padding: 20px;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 300;
+        border: 1px solid #E5E5E5;
+      }
+
+      .card-header {
+        margin-bottom: 10px;
+      }
+
+      /* For browsers that don't support shadow DOM natively the
+      polyfill-next-selector rule tells the shadow DOM polyfill how to transform
+      the ::content rule into a non-shadow DOM rule. */
+      polyfill-next-selector {
+        content: '.card-header h2';
+      }
+
+      /* The ::content pseudo-element selects an insertion point (created by a
+        <content> tag). ::content h2 selects any h2 that's distributed through
+        an insertion point. You can’t style the insertion point itself, so
+        the ::content pseudo-element is always used with a descendent
+        combinator. */
+      .card-header ::content h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 300;
+      }
+
+      polyfill-next-selector {
+        content: '.card-header img';
+      }
+
+      .card-header ::content img {
+        width: 70px;
+        border-radius: 50%;
+        margin: 10px;
+      }
+
+      core-icon-button {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        color: #636363;
+      }
+
+      :host([favorite]) core-icon-button {
+        color: #da4336;
+      }
+    </style>
+
+    <!-- The layout horizontal center attributes are Polymer shorthand to create
+    a flexbox layout. -->
+    <div class="card-header" layout horizontal center>
+      <!-- You need to add an "insertion point" (<content> tag), which tells
+      the browser where to render "light DOM" children in the "shadow DOM" tree.
+      The shadow DOM spec calls this process of selecting nodes 'distribution'.
+      -->
+      <content select="img"></content>
+      <content select="h2"></content>
+    </div>
+
+    <core-icon-button
+      id="favicon"
+      icon="favorite"
+      on-tap="{{favoriteTapped}}"></core-icon-button>
+
+    <!-- The final <content> tag, with no select attribute, selects any nodes
+    that haven't already been inserted. (This is probably the most common form
+    of <content> element). This is the text of the card. -->
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+      publish: {
+        // Update DOM favorite attribute whenever the favorite property changes.
+        favorite: {
+          value: false,
+          reflect: true
+        }
+      },
+      favoriteTapped: function(event, detail, sender) {
+        this.favorite = !this.favorite; // Toggle favorite property.
+        this.fire('favorite-tap'); // Fire custom event (e.g. on-favorite-tap).
+      }
+    });
+  </script>
+</polymer-element>

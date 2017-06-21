@@ -1,0 +1,11 @@
+<div id="polymer-view" class="wc-container" layout vertical center>
+
+  <post-card ng-repeat="post in polymerCtrl.posts">
+    <img src="[[post.avatar]]">
+    <h2>[[post.username]]</h2>
+    <p>
+      [[post.text]]
+    </p>
+  </post-card>
+
+</div>

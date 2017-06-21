@@ -1,0 +1,35 @@
+<div id="proto-view">
+  <p>
+    <label>
+      <strong>Hello World: &nbsp;</strong>
+    </label>
+    <hello-world>[[protoCtrl.getProto()]]</hello-world>
+  </p>
+
+  <md-divider class="md-default-theme"></md-divider>
+
+  <p>
+    <strong>Persons</strong>
+    <ul>
+      <li ng-repeat="person in protoCtrl.persons">
+        [[person]]
+      </li>
+    </ul>
+  </p>
+
+  <md-divider class="md-default-theme"></md-divider>
+
+  <p>
+    <div id="soy-content"></div>
+    <div id="loading-container">
+      <button class="md-raised md-primary md-button md-default-theme">
+        <span>Load</span>
+        <div class="md-ripple-container"></div>
+      </button>
+    </div>
+  </p>
+
+  <script>
+    webproto.main();
+  </script>
+</div>

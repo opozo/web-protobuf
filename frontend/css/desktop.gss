@@ -1,0 +1,20 @@
+/**
+ * @fileoverview Desktop styles.
+ */
+
+@provide 'webproto.desktop';
+
+/* ==========================================================================
+   Variable definitions
+   ========================================================================== */
+
+@def BODY_DESKTOP_BG #FFF;
+
+@media (min-width: 980px) {
+
+  body {
+    background-color: BODY_DESKTOP_BG !important;
+  }
+
+}
+

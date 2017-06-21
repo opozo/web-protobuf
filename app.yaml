@@ -1,0 +1,55 @@
+application: web-protobuf
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+libraries:
+- name: django
+  version: "1.3"
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /img
+  static_dir: frontend/img
+
+- url: /lib
+  static_dir: frontend/lib
+
+- url: /json
+  static_dir: frontend/json
+
+# Development
+- url: /js
+  static_dir: frontend/js
+
+- url: /css
+  static_dir: frontend/css
+
+- url: /components
+  static_dir: frontend/components
+
+# Production
+- url: /js/min
+  static_dir: frontend/js/min
+
+- url: /css/min
+  static_dir: frontend/css/min
+
+- url: .*
+  script: main.app
+
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(protobuf-2.6.0/.*)
+- ^(frontend/js/closure-compiler/.*)
+- ^(frontend/js/closure-template/closure-js-templates.*)
+- ^(frontend/css/closure-stylesheet/.*)
+- ^(frontend/css/yui-compressor/.*)
+- ^(frontend/js/plovr.*)
+- ^(node_modules/.*)

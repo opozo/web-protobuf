@@ -1,0 +1,38 @@
+@media (min-width:980px) {
+  body {
+    background-color: #fff !important;
+  }
+}
+body {
+  background-color: #fafafa;
+}
+.gutter {
+  position: relative;
+  padding-left: 30px;
+  margin-right: 30px;
+}
+.gutter-start {
+  padding-left: 0;
+}
+.md-toolbar-item a:focus {
+  text-decoration: underline;
+}
+.wc-container {
+  font-family: 'RobotoDraft',sans-serif;
+  width: 90%;
+  margin: 50px auto;
+}
+post-card {
+  margin-bottom: 30px;
+}
+.light-blue {
+  background-color: #e3e9ff;
+}
+h2.light-blue {
+  text-align: center;
+}
+@media (min-width:481px) {
+  .wc-container {
+    width: 400px;
+  }
+}
